@@ -1,0 +1,20 @@
+luis@luis-VirtualBox:~/Documents/Labs/Project/Disk Sim$ gcc -g disk.c -o disk
+luis@luis-VirtualBox:~/Documents/Labs/Project/Disk Sim$ ./disk
+
+The logical address is: 129
+The physical address is:
+Cylinder: 0
+Head: 1
+Sector: 1
+
+Write: Successfully executed.
+
+The logical address is: 129
+The physical address is:
+Cylinder: 0
+Head: 1
+Sector: 1
+
+Read: Successfully executed.
+The new buffer contains: Hello
+luis@luis-VirtualBox:~/Documents/Labs/Project/Disk Sim$ 

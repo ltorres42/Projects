@@ -1,0 +1,20 @@
+Luiss-MacBook-Pro:Compiler Project Luis$ make clean
+rm -R cilisp cilisp.tab.c lex.yy.c cilisp.tab.h cilisp.dSYM
+Luiss-MacBook-Pro:t5 Luis$ make
+bison -d cilisp.y
+flex cilisp.l
+gcc -o cilisp cilisp.c cilisp.tab.c lex.yy.c -g -lm
+Luiss-MacBook-Pro:t5 Luis$ ./cilisp
+> (add ((let (abc 1)) (sub -3 abc)) 4)
+0.000000
+> (mult ((let (a 1) (b 2)) (add a b)) (sqrt 2))
+4.242641
+> (add ((let (a ((let (b 2)) (mult b (sqrt 10))))) (div a 2)) ((let (c 5)) (sqrt c)))
+5.398346
+> ((let (first (sub 5 1)) (second 2)) (add (pow 2 first) (sqrt second)))
+17.414214
+> ((let (abc 1)) (sub ((let (abc 2) (de 3)) (add abc de)) abc))
+4.000000
+> ((let (abc 1)) (sub ((let (abc 2)) (add abc de)) abc))
+Compilation error.
+Luiss-MacBook-Pro:Compiler Project Luis$ 
