@@ -35,7 +35,7 @@ int log_to_phys(int logaddr, physaddr_t *phaddr)
 
 		printf("\n");
 		printf("The logical address is: %d\n", logaddr);
-		printf("The physical address is:\n");
+		printf("The physical address is below:\n");
 		printf("Cylinder: %d\n", phaddr->cyl);
 		printf("Head: %d\n", phaddr->head);
 		printf("Sector: %d\n", phaddr->sect);
@@ -65,7 +65,7 @@ int phys_to_log(physaddr_t *phaddr)
 		logaddr = phaddr->sect;
 	}
 	
-	printf("The physical address is:\n");
+	printf("The physical address is below:\n");
 	printf("Cylinder: %d\n", phaddr->cyl);
 	printf("Head: %d\n", phaddr->head);
 	printf("Sector: %d\n", phaddr->sect);
@@ -83,6 +83,7 @@ int read(int logical_block_num, int num_of_sectors, void **buffer)
 	if (logical_block_num >= 0 && num_of_sectors > 0)
 	{
 		/* code */
+		printf(":::READ SECTION:::\n");
 		physaddr_t phaddr;
 		log_to_phys(logical_block_num, &phaddr);
 		buffer = malloc(sizeof(NUM_OF_HEADS * NUM_OF_CYLS * NUM_OF_SECTS * SECT_SIZE));
@@ -108,6 +109,8 @@ int write(int logical_block_num, int num_of_sectors, void *buffer)
 	if (logical_block_num >= 0 && num_of_sectors > 0)
 	{
 		/* code */
+		printf("\n");
+		printf(":::WRITE SECTION:::");
 		physaddr_t phaddr;
 		log_to_phys(logical_block_num, &phaddr);
 		if (phaddr.sect >= 0)
@@ -119,4 +122,16 @@ int write(int logical_block_num, int num_of_sectors, void *buffer)
 		}
 	}
 	return 0;
+}
+
+int main(int argc, char const *argv[])
+{
+	char *buffer = "Hello";
+	char *buffer2;
+	physaddr_t *phaddr = malloc(sizeof(MAX_LOGICAL_SECTOR));
+	log_to_phys(255999, phaddr);
+	phys_to_log(phaddr);
+	write(129, 5, (void*) buffer);
+	printf("%s\n", (char*) disks);
+	read(129, 5, (void**) &buffer2);
 }

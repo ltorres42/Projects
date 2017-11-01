@@ -1,20 +1,35 @@
-luis@luis-VirtualBox:~/Documents/Labs/Project/Disk Sim$ gcc -g disk.c -o disk
-luis@luis-VirtualBox:~/Documents/Labs/Project/Disk Sim$ ./disk
+Luiss-MacBook-Pro:Disk Memory Simulator (C) Luis$ gcc -g disk.c -o disk
+Luiss-MacBook-Pro:Disk Memory Simulator (C) Luis$ ./disk
 
+The logical address is: 255999
+The physical address is below:
+Cylinder: 199
+Head: 9
+Sector: 127
+
+The physical address is below:
+Cylinder: 199
+Head: 9
+Sector: 127
+The logical address is: 255999
+
+:::WRITE SECTION:::
 The logical address is: 129
-The physical address is:
+The physical address is below:
 Cylinder: 0
 Head: 1
 Sector: 1
 
 Write: Successfully executed.
 
+:::READ SECTION:::
+
 The logical address is: 129
-The physical address is:
+The physical address is below:
 Cylinder: 0
 Head: 1
 Sector: 1
 
 Read: Successfully executed.
 The new buffer contains: Hello
-luis@luis-VirtualBox:~/Documents/Labs/Project/Disk Sim$ 
+Luiss-MacBook-Pro:Disk Memory Simulator (C) Luis$ 
